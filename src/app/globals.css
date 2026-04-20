@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0f0c29;
-  --foreground: #ededed;
+  --background: #87CEEB;
+  --foreground: #1a1a2e;
 }
 
 @theme inline {
@@ -77,6 +77,39 @@ body {
 .screen-shaking {
   animation: screen-shake 0.35s ease-out forwards;
 }
+
+/* ── Sky clouds ───────────────────────────────────────────────────────────── */
+@keyframes cloud-drift {
+  from { transform: translateX(-300px); }
+  to   { transform: translateX(calc(100vw + 300px)); }
+}
+
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 50px;
+  opacity: 0.82;
+  pointer-events: none;
+  animation: cloud-drift linear infinite;
+}
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+.cloud-sm  { width: 100px; height: 30px; }
+.cloud-sm::before  { width: 50px; height: 50px; top: -25px; left: 15px; }
+.cloud-sm::after   { width: 35px; height: 35px; top: -16px; left: 45px; }
+
+.cloud-md  { width: 160px; height: 40px; }
+.cloud-md::before  { width: 70px; height: 70px; top: -35px; left: 25px; }
+.cloud-md::after   { width: 55px; height: 55px; top: -25px; left: 80px; }
+
+.cloud-lg  { width: 220px; height: 55px; }
+.cloud-lg::before  { width: 100px; height: 100px; top: -50px; left: 30px; }
+.cloud-lg::after   { width: 75px;  height: 75px;  top: -35px; left: 115px; }
 
 /* ── CSS particles ────────────────────────────────────────────────────────── */
 @keyframes particle-fly {

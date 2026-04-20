@@ -334,8 +334,8 @@ function NextPiecePanel({ piece }: { piece: Piece }) {
   return (
     <div
       style={{
-        background: 'rgba(255,255,255,0.05)',
-        border: '1px solid rgba(255,255,255,0.1)',
+        background: 'rgba(0,0,0,0.25)',
+        border: '1px solid rgba(0,0,0,0.15)',
         borderRadius: 12,
         padding: '12px 16px',
         display: 'flex',
@@ -514,15 +514,24 @@ export default function PuyoGame() {
     <div
       style={{
         minHeight: '100vh',
-        background: 'linear-gradient(135deg, #0f0c29 0%, #1a1040 40%, #0d0d1a 100%)',
+        background: 'linear-gradient(180deg, #56aee8 0%, #87CEEB 55%, #c8e8f5 100%)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         padding: '24px 16px',
         fontFamily: "'Geist', 'Inter', sans-serif",
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      {/* Clouds */}
+      <div className="cloud cloud-lg" style={{ top: '6%',  animationDuration: '28s', animationDelay: '0s'    }} />
+      <div className="cloud cloud-md" style={{ top: '15%', animationDuration: '22s', animationDelay: '-9s'   }} />
+      <div className="cloud cloud-sm" style={{ top: '28%', animationDuration: '35s', animationDelay: '-18s'  }} />
+      <div className="cloud cloud-lg" style={{ top: '40%', animationDuration: '32s', animationDelay: '-5s'   }} />
+      <div className="cloud cloud-md" style={{ top: '58%', animationDuration: '25s', animationDelay: '-14s'  }} />
+      <div className="cloud cloud-sm" style={{ top: '72%', animationDuration: '40s', animationDelay: '-22s'  }} />
       {/* Title */}
       <h1
         style={{
@@ -549,11 +558,11 @@ export default function PuyoGame() {
               display: 'grid',
               gridTemplateColumns: `repeat(${COLS}, ${CELL}px)`,
               gridTemplateRows: `repeat(${VISIBLE_ROWS}, ${CELL}px)`,
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.12)',
+              background: 'rgba(0,0,0,0.15)',
+              border: '1px solid rgba(0,0,0,0.2)',
               borderRadius: 12,
               overflow: 'hidden',
-              boxShadow: '0 0 40px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,0,0,0.3)',
+              boxShadow: '0 0 40px rgba(0,0,0,0.4), inset 0 0 20px rgba(0,0,0,0.2)',
             }}
           >
             {/* Particle overlay */}
@@ -718,7 +727,7 @@ export default function PuyoGame() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, width: 120 }}>
           {/* Score */}
           <StatCard label="SCORE" value={state.score.toLocaleString()} accent="#FFD32A" />
-          <StatCard label="LEVEL" value={String(state.level)} accent="#3D9FFF" />
+          <StatCard label="LEVEL" value={String(state.level)} accent="#1565C0" />
           <StatCard
             label="CHAIN"
             value={state.chainCount > 0 ? `${state.chainCount}連鎖` : '-'}
@@ -734,12 +743,12 @@ export default function PuyoGame() {
           {/* Controls */}
           <div
             style={{
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'rgba(0,0,0,0.2)',
+              border: '1px solid rgba(0,0,0,0.12)',
               borderRadius: 10,
               padding: '10px 12px',
               fontSize: 11,
-              color: 'rgba(255,255,255,0.35)',
+              color: 'rgba(255,255,255,0.7)',
               lineHeight: 1.8,
             }}
           >
@@ -753,8 +762,8 @@ export default function PuyoGame() {
           <button
             onClick={toggleMute}
             style={{
-              background: 'rgba(255,255,255,0.06)',
-              border: '1px solid rgba(255,255,255,0.1)',
+              background: 'rgba(0,0,0,0.2)',
+              border: '1px solid rgba(0,0,0,0.12)',
               borderRadius: 8,
               padding: '8px 0',
               color: 'rgba(255,255,255,0.6)',
@@ -782,8 +791,8 @@ function StatCard({ label, value, accent }: { label: string; value: string; acce
   return (
     <div
       style={{
-        background: 'rgba(255,255,255,0.05)',
-        border: '1px solid rgba(255,255,255,0.1)',
+        background: 'rgba(0,0,0,0.25)',
+        border: '1px solid rgba(0,0,0,0.15)',
         borderRadius: 10,
         padding: '10px 14px',
       }}
